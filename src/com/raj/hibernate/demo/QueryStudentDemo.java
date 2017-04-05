@@ -29,6 +29,14 @@ public class QueryStudentDemo {
 			student = session.createQuery("from Student s where s.lastName='P'").getResultList();
 			
 			displayStudents(student);
+
+			student = session.createQuery("from Student s where s.lastName='P' or s.firstName='A'").getResultList();
+			
+			displayStudents(student);
+			
+			student = session.createQuery("from Student s where s.email LIKE '%mail.com'").getResultList();
+			
+			displayStudents(student);
 			
 			session.getTransaction().commit();
 		}
